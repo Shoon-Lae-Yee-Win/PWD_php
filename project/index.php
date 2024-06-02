@@ -13,7 +13,6 @@
         <?php if(isset($_GET['incorrect'])) : ?>
             <div class="alert alert-warning">
                 Incorrect Email Or Password!<i class="fa-solid fa-circle-exclamation ms-2"></i>
-                <span class="d-flex flex-row"><i class="fa-solid fa-xmark"></i></span>
             </div> 
         <?php endif ?>
         <form action="_actions/login.php" method="post">
