@@ -1,0 +1,25 @@
+-- CRUD
+
+-- Create --
+
+INSERT INTO roles (name, value) VALUES ('super', 44);
+
+INSERT INTO `roles`(`name`, `value`) VALUES ('super', 44);
+
+Query Keyword co Capitalize
+
+table name, column name ⇒ exactly create MYSQL
+
+-- Read --
+
+SELECT `id`, `name` FROM `roles`
+
+SELECT `id`, `name` FROM `roles` ORDER BY `name` DESC LIMIT 3
+
+-- Update --
+
+UPDATE `roles` SET `name` = ‘Manager’ WHERE `id` = 2
+
+-- Delete --
+
+DELETE FROM `roles` WHERE `id` = 2

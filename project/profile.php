@@ -5,12 +5,19 @@
 //     header("location: index.php");
 // }
 
-session_start();
-$login = isset($_SESSION['user']);
-if(!$login) {
-    header("location: index.php");
-    exit();
-}
+// session_start();
+// $login = isset($_SESSION['user']);
+// if(!$login) {
+//     header("location: index.php");
+//     exit();
+// }
+
+include("vendor/autoload.php");
+
+use Helpers\Auth;
+
+Auth::check();
+$user = $_SESSION['user'];
 
 ?>
 <!DOCTYPE html>
@@ -31,8 +38,8 @@ if(!$login) {
             </div>
         <?php endif ?>
 
-        <?php if(file_exists("_actions/photos/profile.jpg")) :?>
-            <img src="_actions/photos/profile.jpg" class="img-thumbnail my-2" width="200">
+        <?php if($user->photo) :?>
+            <img src="_actions/photos/<?= $user->photo ?>" class="img-thumbnail my-2" width="200">
         <?php endif ?>
 
         <form action="_actions/upload.php" method="post" enctype="multipart/form-data" class="input-group my-2">
@@ -41,10 +48,10 @@ if(!$login) {
         </form>
 
         <ul class="list-group mb-2">
-            <li class="list-group-item">Name: Alice</li>
-            <li class="list-group-item">Email: alice@gmail.com</li>
-            <li class="list-group-item">Phone: 01-456823</li>
-            <li class="list-group-item">Address: Some address</li>
+            <li class="list-group-item">Name: <?= $user->name ?></li>
+            <li class="list-group-item">Email: <?= $user->email ?></li>
+            <li class="list-group-item">Phone: <?= $user->phone ?></li>
+            <li class="list-group-item">Address: <?= $user->address ?></li>
         </ul>
         <a href="_actions/logout.php" class="text-danger">Logout</a>
     </div>
