@@ -53,6 +53,7 @@ $user = $_SESSION['user'];
             <li class="list-group-item">Phone: <?= $user->phone ?></li>
             <li class="list-group-item">Address: <?= $user->address ?></li>
         </ul>
+        <a href="admin.php">Admin</a> |
         <a href="_actions/logout.php" class="text-danger">Logout</a>
     </div>
 </body>

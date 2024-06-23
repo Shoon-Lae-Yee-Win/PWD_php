@@ -20,6 +20,11 @@
                 Account Create!
             </div> 
         <?php endif ?>
+        <?php if(isset($_GET['suspended'])) : ?>
+            <div class="alert alert-danger">
+                Suspended Account!
+            </div> 
+        <?php endif ?>
         <form action="_actions/login.php" method="post">
             <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
             <input type="password" name="password" placeholder="Password" class="form-control mb-2" required>
